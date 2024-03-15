@@ -1,0 +1,93 @@
+package com.ontariotechu.ticketbookingapplication;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class TicketBookingApplicationTest {
+    private final PrintStream standardOut = System.out;
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+
+    @BeforeEach
+    public void setUp() {
+        System.setOut(new PrintStream(outputStreamCaptor));
+    }
+
+    @AfterEach
+    public void tearDown() {
+        System.setOut(standardOut);
+    }
+
+    @Test
+    public void testAddNewFlight() {
+        // Set up input for getflightinfo() method
+        String input = "AC123\nYYZ\nLAX\n2024-03-15 08:00 AM\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        // Call the method under test
+        FlightInfo.getflightinfo();
+
+        // Capture the output
+        String actualOutput = outputStreamCaptor.toString();
+
+        // Print out the actual output for debugging
+        System.out.println("Actual Output: " + actualOutput);
+
+        // Verify the output
+        assertTrue(actualOutput.contains("Flight Number: AC123, Departure Airport: YYZ, Destination Airport: LAX, Departure Time: 2024-03-15 08:00 AM"));
+    }
+
+
+
+    @Test
+    public void testEditExistingFlight() {
+        String initialInput = "Flight Number: UA456, Departure Airport: JFK, Destination Airport: SFO, Departure Time: 2024-03-15 10:00 AM\n";
+        FlightInfo.writeToFile("flightinfo.txt", initialInput);
+
+        String editInput = "1\nAC789\nLAX\nSFO\n2024-03-15 12:00 PM\n";
+        System.setIn(new ByteArrayInputStream(editInput.getBytes()));
+        FlightInfo.editFlight();
+
+        String expectedOutput = "Flight details:\n1. Flight Number: AC789, Departure Airport: LAX, Destination Airport: SFO, Departure Time: 2024-03-15 12:00 PM\n\nFlight information updated successfully!\n";
+        assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
+
+    @Test
+    public void testViewExistingFlightInformation() {
+        String input = "Flight Number: AC123, Departure Airport: YYZ, Destination Airport: LAX, Departure Time: 2024-03-15 08:00 AM\nFlight Number: UA456, Departure Airport: JFK, Destination Airport: SFO, Departure Time: 2024-03-15 10:00 AM\n";
+        FlightInfo.writeToFile("flightinfo.txt", input);
+
+        FlightInfo.flightinfo();
+
+        String expectedOutput = "Flight details:\nFlight Number: AC123, Departure Airport: YYZ, Destination Airport: LAX, Departure Time: 2024-03-15 08:00 AM\nFlight Number: UA456, Departure Airport: JFK, Destination Airport: SFO, Departure Time: 2024-03-15 10:00 AM\n\n";
+        assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
+
+    @Test
+    public void testInvalidInputForEditing() {
+        String input = "Flight Number: UA456, Departure Airport: JFK, Destination Airport: SFO, Departure Time: 2024-03-15 10:00 AM\n";
+        FlightInfo.writeToFile("flightinfo.txt", input);
+
+        String editInput = "2\n3\n";
+        System.setIn(new ByteArrayInputStream(editInput.getBytes()));
+        FlightInfo.editFlight();
+
+        String expectedOutput = "Flight details:\n1. Flight Number: UA456, Departure Airport: JFK, Destination Airport: SFO, Departure Time: 2024-03-15 10:00 AM\n\nEnter the number of the flight to edit: Error reading or writing to file: null\n";
+        assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
+
+    @Test
+    public void testInvalidInputForMenuOption() {
+        String input = "3\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        FlightInfo.main(new String[]{});
+
+        String expectedOutput = "Welcome Admin!\nMenu:\n1. Enter new flights\n2. Edit existing flights\nEnter your choice: Error reading or writing to file: null\n";
+        assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
+}
