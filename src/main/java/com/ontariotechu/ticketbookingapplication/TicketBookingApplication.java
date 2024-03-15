@@ -8,8 +8,7 @@ public class TicketBookingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TicketBookingApplication.class, args);
-		int ch;
-		System.out.println(S);
+
 	}
 
 }
