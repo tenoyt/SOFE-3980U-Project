@@ -1,0 +1,2 @@
+Booking ID: 4983, Flight Number: AC123, Trip Type: round-trip, Stops: Stop 1: Airport Code: Hallifax , Passenger Name: Rishab, Seat Number: A1
+Booking ID: 62524, Flight Number: AC123, Trip Type: round-trip, Stops: Stop 1: Airport Code: Kingston , Passenger Name: Krishka, Seat Number: A2

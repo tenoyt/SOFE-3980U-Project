@@ -1,1 +1,3 @@
-Flight Number: 101, Departure Airport: YYZ, Destination Airport: YVR, Departure Time: 15:30
+Flight Number: RS180, Departure Airport: Surrey, Destination Airport: Montreal, Day of the week: Wednesday, Departure Time: 19:00, Arrival Time: 4:00
+Flight Number: AC123, Departure Airport: Toronto, Destination Airport: Montreal, Day of the week: Friday, Departure Time: 13:00, Arrival Time: 17:00
+Flight Number: AB990, Departure Airport: Hallifax, Destination Airport: Vancouver, Day of the week: Tuesday, Departure Time: 11:00, Arrival Time: 21:00
