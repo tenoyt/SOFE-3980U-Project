@@ -67,10 +67,11 @@ public class FlightInfo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome Admin!");
-        System.out.println("Menu:\n" +
-                "1. Enter new flights\n" +
-                "2. View flight information\n" +
-                "Enter your choice:");
+        System.out.println("""
+                Menu:
+                1. Enter new flights
+                2. View flight information
+                Enter your choice:""");
         int ch = sc.nextInt();
         sc.nextLine();
         if (ch == 1) {

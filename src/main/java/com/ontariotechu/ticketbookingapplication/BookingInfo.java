@@ -127,10 +127,11 @@ public class BookingInfo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome Admin!");
-        System.out.println("Menu:\n" +
-                "1. Enter booking information\n" +
-                "2. View booking information\n" +
-                "Enter your choice:");
+        System.out.println("""
+                Menu:
+                1. Enter booking information
+                2. View booking information
+                Enter your choice:""");
         int choice = sc.nextInt();
         sc.nextLine(); // Consume newline character
         switch (choice) {
