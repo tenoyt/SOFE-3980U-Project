@@ -15,7 +15,32 @@ public class FlightInfo {
             System.err.println("Error writing to file: " + e.getMessage());
         }
     }
+    public static int calculateFlightTime(String departureTime, String arrivalTime) {
+        // Split the departure and arrival times into hours and minutes
+        String[] departureParts = departureTime.split(":");
+        String[] arrivalParts = arrivalTime.split(":");
 
+        // Parse hours and minutes from the split strings
+        int departureHours = Integer.parseInt(departureParts[0]);
+        int departureMinutes = Integer.parseInt(departureParts[1]);
+        int arrivalHours = Integer.parseInt(arrivalParts[0]);
+        int arrivalMinutes = Integer.parseInt(arrivalParts[1]);
+
+        // Convert hours to minutes and add the minutes to get total minutes from midnight
+        int departureTotalMinutes = departureHours * 60 + departureMinutes;
+        int arrivalTotalMinutes = arrivalHours * 60 + arrivalMinutes;
+
+        // Calculate the difference in minutes
+        int difference = arrivalTotalMinutes - departureTotalMinutes;
+
+        // If the arrival is on the next day (difference is negative), adjust by adding 24 hours worth of minutes
+        if (difference < 0) {
+            difference += 24 * 60;
+        }
+
+        return difference;
+    }
+    
     public static void getFlightInfo() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter flight details:");
