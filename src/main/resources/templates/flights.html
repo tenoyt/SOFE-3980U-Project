@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Css Stylesheet -->
+    <link rel="stylesheet" href="style1.css" />
+
+    <!-- unicons -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <!-- favicon -->
+    <link rel="icon" href="C:\Users\risha\Documents\Ontario Tech University\Year 3\Software_Quality_Project\Deliverable_2\Favicon.png" />
+
+    <!-- script tag -->
+    <script defer src="/JS/script.js"></script>
+
+    <!-- ScrollReveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- swiper js -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- Title -->
+    <title>Book flight</title>
+  </head>
+  <body>
+    <!-- Showcase -->
+    <main class="main" id="home">
+      <!-- Header -->
+      <header class="header">
+
+        <!-- navbar -->
+        <nav class="navbar">
+          <ul class="navlists">
+            <li class="navlist"><a href="index.html">Home</a></li>
+            <li class="navlist"><a href="flights.html">Book a Flight</a></li> <!-- Change href -->
+        </nav>
+      </header>
+
+      <!-- showcase-search -->
+      <div class="showcase-search">
+        <div class="filters">
+          <div class="filter">
+            <div class="search-icon">
+              <img src="C:\Users\risha\Documents\Ontario Tech University\Year 3\Software_Quality_Project\Deliverable_2\location.png" alt="" />
+            </div>
+            <div class="search-text">
+              <input type="text" id="departure_location" placeholder="Departure Location">
+  			</div>
+            </div>
+          <div class="filter">
+            <div class="search-icon">
+              <img src="C:\Users\risha\Documents\Ontario Tech University\Year 3\Software_Quality_Project\Deliverable_2\location.png" alt="" />
+            </div>
+            <div class="search-text">
+               <input type="text" id="arrival_location" placeholder="Arrival Location">
+            </div>
+          </div>
+
+
+          <div class="filter">
+			<div class="search-icon">
+    			<img src="C:\Users\risha\Documents\Ontario Tech University\Year 3\Software_Quality_Project\Deliverable_2\location.png" alt="" />
+  			</div>
+		  <div class="search-text">
+		    <select id="departure_location">
+		      <option value="" disabled selected>Trip Type</option>
+		      <option value="New York">One Way</option>
+		      <option value="London">Round Trip</option>
+		    </select>
+		  </div>
+		</div>
+
+	   <div class="filter">
+			<div class="search-icon">
+    			<img src="C:\Users\risha\Documents\Ontario Tech University\Year 3\Software_Quality_Project\Deliverable_2\location.png" alt="" />
+  			</div>
+		  <div class="search-text">
+		    <select id="departure_location">
+		      <option value="" disabled selected>Number of stops</option>
+		      <option value="New York">Direct</option>
+		      <option value="London">Multi-stops</option>
+		    </select>
+		  </div>
+		</div>
+
+          <div class="filter">
+            <div class="search-icon">
+              <img src="C:\Users\risha\Documents\Ontario Tech University\Year 3\Software_Quality_Project\Deliverable_2\calendar.png" alt="" />
+            </div>
+            <div class="search-text">
+			    <label for="datepicker">Choose a date:</label>
+			    <input type="date" id="datepicker" name="datepicker">
+		  </div>
+          </div>
+          <div class="filter">
+            <div class="search-icon">
+              <img src="C:\Users\risha\Documents\Ontario Tech University\Year 3\Software_Quality_Project\Deliverable_2\guest.png"alt="" />
+            </div>
+            <div class="search-text">
+			    <label for="passenger_count">Number of Passengers:</label>
+			    <input type="number" id="passenger_count" class="form-control" min="1" value="1">
+		  </div>
+          </div>
+        </div>
+        <div class="search-button-icon">
+          <img src="C:\Users\risha\Documents\Ontario Tech University\Year 3\Software_Quality_Project\Deliverable_2\search.svg" alt="" />
+        </div>
+      </div>
+    </main>
+
+    <section>
+    	
+    </section>
+ 
+
+    <!-- footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-sections">
+          <div class="footer-section">
+            <p>We always make our customers happy by providing as many choises as possible</p>
+            <h3>Copyright to RKTK</h3>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
