@@ -55,6 +55,21 @@
 					<compilerArgs>--enable-preview</compilerArgs>
 				</configuration>
 			</plugin>
+			<!-- assembly lifecycle, generate jar with dependencies-->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+				  <archive>
+					<manifest>
+					  <addClasspath>true</addClasspath>
+					  <mainClass>com.ontariotechu.sofe3980U.App</mainClass>
+					</manifest>
+				  </archive>
+				  <descriptorRefs>
+					<descriptorRef>jar-with-dependencies</descriptorRef>
+				  </descriptorRefs>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<reporting>
