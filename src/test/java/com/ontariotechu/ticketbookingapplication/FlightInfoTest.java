@@ -18,7 +18,38 @@ import java.util.List;
 class FlightInfoTest {
     private final String testFileName = "testFlightInfo.txt";
 
+    @Test
+    void testFlightInfo() {
+        // Redirect System.out to capture output
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
 
+        // Call the method to test
+        FlightInfo.flightInfo();
+
+        // Get the actual output
+        String actualOutput = outContent.toString();
+
+        // Normalize line separators in actual output
+        actualOutput = actualOutput.replaceAll("\\r\\n", "\n").replaceAll("\\r", "\n");
+
+        // Restore standard output
+        System.setOut(System.out);
+
+        // Verify output
+        String expectedOutput = "Flight details:" + LINE_SEPARATOR +
+                "Flight Number: RS180, Departure Airport: Surrey, Destination Airport: Montreal, Day of the week: Wednesday, Departure Time: 19:00, Arrival Time: 4:00" + LINE_SEPARATOR +
+                "Flight Time: 9 hours 0 minutes" + LINE_SEPARATOR +
+                "Flight Number: AC123, Departure Airport: Toronto, Destination Airport: Montreal, Day of the week: Friday, Departure Time: 13:00, Arrival Time: 17:00" + LINE_SEPARATOR +
+                "Flight Time: 4 hours 0 minutes" + LINE_SEPARATOR +
+                "Flight Number: AB990, Departure Airport: Hallifax, Destination Airport: Vancouver, Day of the week: Tuesday, Departure Time: 11:00, Arrival Time: 21:00" + LINE_SEPARATOR +
+                "Flight Time: 10 hours 0 minutes" + LINE_SEPARATOR;
+
+        // Normalize line separators in expected output
+        expectedOutput = expectedOutput.replaceAll("\\r\\n", "\n").replaceAll("\\r", "\n");
+
+        assertEquals(expectedOutput, actualOutput);
+    }
     @Test
     void testFlightTimeMidnightCrossing() {
         assertEquals(540, FlightInfo.calculateFlightTime("19:00", "04:00"),
